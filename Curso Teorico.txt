@@ -1,0 +1,4 @@
+https://www.campusmvp.es/recursos/post/introduccion-rapida-a-linq-con-c-sharp.aspx
+https://csharp.com.es/poo/
+https://ferestrepoca.github.io/paradigmas-de-programacion/poo/poo_teoria/concepts.html
+https://abi.gitbook.io/net-core/3.-servicios-rest/4.7-refactorizando-tu-codigo
