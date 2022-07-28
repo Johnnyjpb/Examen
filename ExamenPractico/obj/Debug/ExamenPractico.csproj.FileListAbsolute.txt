@@ -1,0 +1,15 @@
+C:\Users\iarosales\Documents\Curso\Examen\ExamenPractico\bin\Debug\ExamenPractico.exe.config
+C:\Users\iarosales\Documents\Curso\Examen\ExamenPractico\bin\Debug\ExamenPractico.exe
+C:\Users\iarosales\Documents\Curso\Examen\ExamenPractico\bin\Debug\ExamenPractico.pdb
+C:\Users\iarosales\Documents\Curso\Examen\ExamenPractico\bin\Debug\Conexion.dll
+C:\Users\iarosales\Documents\Curso\Examen\ExamenPractico\obj\Debug\ExamenPractico.csproj.AssemblyReference.cache
+C:\Users\iarosales\Documents\Curso\Examen\ExamenPractico\obj\Debug\ExamenPractico.Properties.Resources.resources
+C:\Users\iarosales\Documents\Curso\Examen\ExamenPractico\obj\Debug\ExamenPractico.Views.Login.resources
+C:\Users\iarosales\Documents\Curso\Examen\ExamenPractico\obj\Debug\ExamenPractico.csproj.GenerateResource.cache
+C:\Users\iarosales\Documents\Curso\Examen\ExamenPractico\obj\Debug\ExamenPractico.csproj.CoreCompileInputs.cache
+C:\Users\iarosales\Documents\Curso\Examen\ExamenPractico\obj\Debug\ExamenPractico.csproj.CopyComplete
+C:\Users\iarosales\Documents\Curso\Examen\ExamenPractico\obj\Debug\ExamenPractico.exe
+C:\Users\iarosales\Documents\Curso\Examen\ExamenPractico\obj\Debug\ExamenPractico.pdb
+C:\Users\iarosales\Documents\Curso\Examen\ExamenPractico\obj\Debug\ExamenPractico.Views.RegistrarUsuario.resources
+C:\Users\iarosales\Documents\Curso\Examen\ExamenPractico\obj\Debug\ExamenPractico.Views.ListaContactos.resources
+C:\Users\iarosales\Documents\Curso\Examen\ExamenPractico\obj\Debug\ExamenPractico.Views.Contactos.resources
