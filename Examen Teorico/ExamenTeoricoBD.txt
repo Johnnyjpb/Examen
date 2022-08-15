@@ -1,0 +1,13 @@
+1) 
+SELECT * FROM Cliente WHERE ApellidoPaterno = 'M' OR ApellidoPaterno = 'A';
+2)
+INSERT INTO Cliente VALUES ('Miriam', 'Herrera', '15/08/2022');
+INSERT INTO Empleado VALUES ('Adrian', 'Hernandez', '19/12/2018', 'Cajero');
+3)
+UPDATE EMPLEADO SET Puesto = 'Programador Especializado' WHERE IdEmpleado = 18;
+4)
+No se puede eliminar datos de una vista o no directamente, la unica solucion para poder eliminar datos de ahi,
+seria eliminando los datos desde las tablas de Empleado o Cliente ya que esas tablas son las que lo almacenan.
+5)
+SELECT * FROM EMPLEADO JOIN EmpleadoGrupo ON EmpleadoGrupo.IdEmpleado = Empleado.IdEmpleado JOIN GrupoTrabajo ON GrupoTrabajo.IdGrupo = EmpleadoGrupo.IdGrupo ORDER BY ('A-Z')
+6)SELECT * FROM Cliente WHERE COUNT((SELECT * FROM ClienteVista WHERE GROUP BY (IdCliente))) > 2

@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BookContactDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CONTACTS">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Cellphone" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Birthdate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Fk_TypeContact" Type="Int32" Nullable="false" />
+    <Property Name="Fk_MaritalStatus" Type="Int32" Nullable="false" />
+    <Property Name="Fk_Sexuality" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="MARITALSTATUS" Relationship="Self.FK__CONTACTS__Fk_Mar__2B3F6F97" FromRole="CONTACTS" ToRole="MARITALSTATUS" />
+    <NavigationProperty Name="SEXUALITY" Relationship="Self.FK__CONTACTS__Fk_Sex__2C3393D0" FromRole="CONTACTS" ToRole="SEXUALITY" />
+    <NavigationProperty Name="TYPECONTACT" Relationship="Self.FK__CONTACTS__Fk_Typ__2A4B4B5E" FromRole="CONTACTS" ToRole="TYPECONTACT" />
+  </EntityType>
+  <EntityType Name="MARITALSTATUS">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="CONTACTS" Relationship="Self.FK__CONTACTS__Fk_Mar__2B3F6F97" FromRole="MARITALSTATUS" ToRole="CONTACTS" />
+  </EntityType>
+  <EntityType Name="SEXUALITY">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="CONTACTS" Relationship="Self.FK__CONTACTS__Fk_Sex__2C3393D0" FromRole="SEXUALITY" ToRole="CONTACTS" />
+  </EntityType>
+  <EntityType Name="TYPECONTACT">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="CONTACTS" Relationship="Self.FK__CONTACTS__Fk_Typ__2A4B4B5E" FromRole="TYPECONTACT" ToRole="CONTACTS" />
+  </EntityType>
+  <Association Name="FK__CONTACTS__Fk_Mar__2B3F6F97">
+    <End Role="MARITALSTATUS" Type="Self.MARITALSTATUS" Multiplicity="1" />
+    <End Role="CONTACTS" Type="Self.CONTACTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MARITALSTATUS">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CONTACTS">
+        <PropertyRef Name="Fk_MaritalStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CONTACTS__Fk_Sex__2C3393D0">
+    <End Role="SEXUALITY" Type="Self.SEXUALITY" Multiplicity="1" />
+    <End Role="CONTACTS" Type="Self.CONTACTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SEXUALITY">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CONTACTS">
+        <PropertyRef Name="Fk_Sexuality" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CONTACTS__Fk_Typ__2A4B4B5E">
+    <End Role="TYPECONTACT" Type="Self.TYPECONTACT" Multiplicity="1" />
+    <End Role="CONTACTS" Type="Self.CONTACTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TYPECONTACT">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CONTACTS">
+        <PropertyRef Name="Fk_TypeContact" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BookContactDatabaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CONTACTS" EntityType="Self.CONTACTS" />
+    <EntitySet Name="MARITALSTATUS" EntityType="Self.MARITALSTATUS" />
+    <EntitySet Name="SEXUALITY" EntityType="Self.SEXUALITY" />
+    <EntitySet Name="TYPECONTACT" EntityType="Self.TYPECONTACT" />
+    <AssociationSet Name="FK__CONTACTS__Fk_Mar__2B3F6F97" Association="Self.FK__CONTACTS__Fk_Mar__2B3F6F97">
+      <End Role="MARITALSTATUS" EntitySet="MARITALSTATUS" />
+      <End Role="CONTACTS" EntitySet="CONTACTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CONTACTS__Fk_Sex__2C3393D0" Association="Self.FK__CONTACTS__Fk_Sex__2C3393D0">
+      <End Role="SEXUALITY" EntitySet="SEXUALITY" />
+      <End Role="CONTACTS" EntitySet="CONTACTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CONTACTS__Fk_Typ__2A4B4B5E" Association="Self.FK__CONTACTS__Fk_Typ__2A4B4B5E">
+      <End Role="TYPECONTACT" EntitySet="TYPECONTACT" />
+      <End Role="CONTACTS" EntitySet="CONTACTS" />
+    </AssociationSet>
+    <FunctionImport Name="getContacts" ReturnType="Collection(BookContactDatabaseModel.getContacts_Result)" />
+  </EntityContainer>
+  <ComplexType Name="getContacts_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="35" />
+    <Property Type="String" Name="Phone" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="Cellphone" Nullable="false" MaxLength="25" />
+    <Property Type="DateTime" Name="Birthdate" Nullable="false" />
+    <Property Type="Int32" Name="Fk_TypeContact" Nullable="false" />
+    <Property Type="Int32" Name="Fk_MaritalStatus" Nullable="false" />
+    <Property Type="Int32" Name="Fk_Sexuality" Nullable="false" />
+  </ComplexType>
+</Schema>

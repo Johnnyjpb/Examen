@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BookContactDatabaseModelStoreContainer" CdmEntityContainer="BookContactDatabaseEntities">
+    <EntitySetMapping Name="CONTACTS">
+      <EntityTypeMapping TypeName="BookContactDatabaseModel.CONTACTS">
+        <MappingFragment StoreEntitySet="CONTACTS">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Cellphone" ColumnName="Cellphone" />
+          <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+          <ScalarProperty Name="Fk_TypeContact" ColumnName="Fk_TypeContact" />
+          <ScalarProperty Name="Fk_MaritalStatus" ColumnName="Fk_MaritalStatus" />
+          <ScalarProperty Name="Fk_Sexuality" ColumnName="Fk_Sexuality" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MARITALSTATUS">
+      <EntityTypeMapping TypeName="BookContactDatabaseModel.MARITALSTATUS">
+        <MappingFragment StoreEntitySet="MARITALSTATUS">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SEXUALITY">
+      <EntityTypeMapping TypeName="BookContactDatabaseModel.SEXUALITY">
+        <MappingFragment StoreEntitySet="SEXUALITY">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TYPECONTACT">
+      <EntityTypeMapping TypeName="BookContactDatabaseModel.TYPECONTACT">
+        <MappingFragment StoreEntitySet="TYPECONTACT">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="getContacts" FunctionName="BookContactDatabaseModel.Store.getContacts">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BookContactDatabaseModel.getContacts_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Cellphone" ColumnName="Cellphone" />
+          <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+          <ScalarProperty Name="Fk_TypeContact" ColumnName="Fk_TypeContact" />
+          <ScalarProperty Name="Fk_MaritalStatus" ColumnName="Fk_MaritalStatus" />
+          <ScalarProperty Name="Fk_Sexuality" ColumnName="Fk_Sexuality" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

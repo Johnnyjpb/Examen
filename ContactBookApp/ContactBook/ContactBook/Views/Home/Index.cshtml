@@ -1,0 +1,305 @@
+﻿@using ContactBook.Models;
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "";
+    List<TYPECONTACT> TypeContacts = ViewBag.TypeContacts;
+    List<SEXUALITY> SexualityList = ViewBag.SexualityList;
+    List<MARITALSTATUS> MaritalStatusList = ViewBag.MaritalStatusList;
+    List<CONTACTS> ContactsList = ViewBag.Contacts;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agenda de contactos</title>
+    <link href="../../Resources/css/root.css" rel="stylesheet" />
+    <link href="../../Resources/css/Home.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+                Bootstrap
+            </a>
+        </div>
+    </nav>
+    <br />
+    <div class="container">
+        <div class="container">
+            <!-- Link -->
+            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                Agregar Contacto
+            </a>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Agregar nuevo contacto</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form action="/Home/addContact" method="POST">
+                                <div class="landForm">
+                                    <label>Agregar nombre: </label>
+                                    <input type="text" name="Name" required />
+                                </div>
+                                <div class="landForm">
+                                    <label>Elige tipo de contacto: </label>
+                                    <select name="Fk_TypeContact">
+                                        <option value="value" selected disabled>Contactos: </option>
+                                        @foreach (TYPECONTACT Typecontact in TypeContacts)
+                                        {
+                                            <option value="@Typecontact.Id">@Typecontact.Name</option>
+                                        }
+                                    </select>
+                                </div>
+                                <div class="landForm">
+                                    <label>Agregar telefono: </label>
+                                    <input type="text" name="Phone" required />
+                                </div>
+                                <div class="landForm">
+                                    <label>Agregar numero de celular: </label>
+                                    <input type="text" name="Cellphone" required />
+                                </div>
+                                <div class="landForm">
+                                    <label>Agregar fecha de nacimiento: </label>
+                                    <input type="date" name="Birthdate" required />
+                                </div>
+                                <div class="landForm">
+                                    <label>Elige genero: </label>
+                                    <select name="Fk_Sexuality">
+                                        <option value="value" selected disabled>Generos: </option>
+                                        @foreach (SEXUALITY Sexuality in SexualityList)
+                                        {
+                                            <option value="@Sexuality.Id">@Sexuality.Name</option>
+                                        }
+                                    </select>
+                                </div>
+                                <div class="landForm">
+                                    <label>Elige estado civil: </label>
+                                    <select name="Fk_MaritalStatus">
+                                        <option value="value" selected disabled>Estado civil: </option>
+                                        @foreach (MARITALSTATUS MaritalStatus in MaritalStatusList)
+                                        {
+                                            <option value="@MaritalStatus.Id">@MaritalStatus.Name</option>
+                                        }
+                                    </select>
+                                </div>
+                                <br />
+                                <button type="submit" class="btn btn-default">Guardar</button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-white" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br /><br />
+        <table id="example" class="table table-striped col-lg-8 col-md-8 col-sm-10" style="width:100%">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre: </th>
+                    <th>Tipo de contacto: </th>
+                    <th>Telefono: </th>
+                    <th>Celular: </th>
+                    <th>Fecha de Nacimiento</th>
+                    <th>Sexo</th>
+                    <th>Estado Civil</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (CONTACTS Contact in ContactsList)
+                {
+                    <tr>
+                        <td>@Contact.Id</td>
+                        <td>@Contact.Name</td>
+                        <td>@Contact.TYPECONTACT.Name</td>
+                        <td>@Contact.Phone</td>
+                        <td>@Contact.Cellphone</td>
+                        <td>@Contact.Birthdate.Day/@Contact.Birthdate.Month/@Contact.Birthdate.Year</td>
+                        <td>@Contact.SEXUALITY.Name</td>
+                        <td>@Contact.MARITALSTATUS.Name</td>
+                        <td>
+                            <button class="btn btn-success" data-toggle="modal" data-target="#myModal_@Contact.Id">Ver Contacto</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-warning" data-toggle="modal" data-target="#myModalEdited_@Contact.Id">Editar Contacto</button>
+                        </td>
+                        <td><button class="btn btn-danger" data-toggle="modal" data-target="#myModalDelete_@Contact.Id">Eliminar Contacto</button></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    @foreach (CONTACTS Contact in ContactsList)
+    {
+        <!-- Modal -->
+        <div class="modal fade" id="myModal_@Contact.Id" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Ver contacto</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="" method="POST">
+                            <div class="landForm">
+                                <label>Agregar nombre: </label>
+                                <input type="text" name="Name" value="@Contact.Name" disabled />
+                            </div>
+                            <div class="landForm">
+                                <label>Elige tipo de contacto: </label>
+                                <select name="Fk_TypeContact">
+                                    <option selected disabled>@Contact.TYPECONTACT.Name </option>
+                                </select>
+                            </div>
+                            <div class="landForm">
+                                <label>Agregar telefono: </label>
+                                <input type="text" name="Phone" value="@Contact.Phone" disabled />
+                            </div>
+                            <div class="landForm">
+                                <label>Agregar numero de celular: </label>
+                                <input type="text" name="Cellphone" value="@Contact.Cellphone" disabled />
+                            </div>
+                            <div class="landForm">
+                                <label>Agregar fecha de nacimiento: </label>
+                                <input type="text" name="Birthdate" value="@Contact.Birthdate.Day/@Contact.Birthdate.Month/@Contact.Birthdate.Year" disabled />
+                            </div>
+                            <div class="landForm">
+                                <label>Elige genero: </label>
+                                <select name="Fk_Sexuality">
+                                    <option selected disabled>@Contact.SEXUALITY.Name </option>
+                                </select>
+                            </div>
+                            <div class="landForm">
+                                <label>Elige estado civil: </label>
+                                <select name="Fk_MaritalStatus">
+                                    <option selected disabled>@Contact.MARITALSTATUS.Name </option>
+                                </select>
+                            </div>
+                            <br />
+                            <button type="submit" class="btn btn-default" disabled>Guardar</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-white" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModalEdited_@Contact.Id" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Ver contacto</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/Home/updateContact" method="POST">
+                            <input type="number" name="Id" value="@Contact.Id" style="display: none;" />
+                            <div class="landForm">
+                                <label>Agregar nombre: </label>
+                                <input type="text" name="Name" value="@Contact.Name" required />
+                            </div>
+                            <div class="landForm">
+                                <label>Elige tipo de contacto: </label>
+                                <select value="@Contact.Fk_TypeContact" name="Fk_TypeContact">
+                                    <option value="@Contact.Fk_TypeContact" selected>@Contact.TYPECONTACT.Name </option>
+                                    @foreach (TYPECONTACT Typecontact in TypeContacts)
+                                    {
+                                        <option value="@Typecontact.Id">@Typecontact.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="landForm">
+                                <label>Agregar telefono: </label>
+                                <input type="text" name="Phone" value="@Contact.Phone" required />
+                            </div>
+                            <div class="landForm">
+                                <label>Agregar numero de celular: </label>
+                                <input type="text" name="Cellphone" value="@Contact.Cellphone" required />
+                            </div>
+                            <div class="landForm">
+                                <label>Agregar fecha de nacimiento: </label>
+                                <input type="text" name="Birthdate" value="@Contact.Birthdate.Date" required />
+                            </div>
+                            <div class="landForm">
+                                <label>Elige genero: </label>
+                                <select value="@Contact.Fk_Sexuality" name="Fk_Sexuality">
+                                    <option value="@Contact.Fk_Sexuality" selected>@Contact.SEXUALITY.Name </option>
+                                    @foreach (SEXUALITY Sexuality in SexualityList)
+                                    {
+                                        <option value="@Sexuality.Id">@Sexuality.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="landForm">
+                                <label>Elige estado civil: </label>
+                                <select value="@Contact.Fk_MaritalStatus" name="Fk_MaritalStatus">
+                                    <option value="@Contact.Fk_MaritalStatus" selected>@Contact.MARITALSTATUS.Name </option>
+                                    @foreach (MARITALSTATUS MaritalStatus in MaritalStatusList)
+                                    {
+                                        <option value="@MaritalStatus.Id">@MaritalStatus.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <br />
+                            <button type="submit" class="btn btn-default">Actualizar</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-white" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="myModalDelete_@Contact.Id" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">¿Seguro que quieres eliminar este contacto? - @Contact.Name - </h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="putCenter" action="/Home/deleteContact" method="POST" style="display: flex; flex-direction: row; justify-content: center;">
+                            <input type="number" name="Id" value="@Contact.Id" style="display: none;" />
+                            <button type="submit" class="btn btn-danger">SI Y ELIMINAR</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-white" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+
+
+    <script src="../../Resources/js/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="../../Resources/js/bootstrap/bootstrap.min.js"></script>
+    <script src="../../Resources/js/plugins.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
+</body>
+</html>

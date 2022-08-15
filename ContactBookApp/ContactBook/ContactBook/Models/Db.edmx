@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BookContactDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CONTACTS">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="35" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="25" />
+          <Property Name="Cellphone" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Birthdate" Type="date" Nullable="false" />
+          <Property Name="Fk_TypeContact" Type="int" Nullable="false" />
+          <Property Name="Fk_MaritalStatus" Type="int" Nullable="false" />
+          <Property Name="Fk_Sexuality" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MARITALSTATUS">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="35" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SEXUALITY">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="35" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TYPECONTACT">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="35" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__CONTACTS__Fk_Mar__2B3F6F97">
+          <End Role="MARITALSTATUS" Type="Self.MARITALSTATUS" Multiplicity="1" />
+          <End Role="CONTACTS" Type="Self.CONTACTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MARITALSTATUS">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CONTACTS">
+              <PropertyRef Name="Fk_MaritalStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CONTACTS__Fk_Sex__2C3393D0">
+          <End Role="SEXUALITY" Type="Self.SEXUALITY" Multiplicity="1" />
+          <End Role="CONTACTS" Type="Self.CONTACTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEXUALITY">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CONTACTS">
+              <PropertyRef Name="Fk_Sexuality" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CONTACTS__Fk_Typ__2A4B4B5E">
+          <End Role="TYPECONTACT" Type="Self.TYPECONTACT" Multiplicity="1" />
+          <End Role="CONTACTS" Type="Self.CONTACTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TYPECONTACT">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CONTACTS">
+              <PropertyRef Name="Fk_TypeContact" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="getContacts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="BookContactDatabaseModelStoreContainer">
+          <EntitySet Name="CONTACTS" EntityType="Self.CONTACTS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MARITALSTATUS" EntityType="Self.MARITALSTATUS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SEXUALITY" EntityType="Self.SEXUALITY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TYPECONTACT" EntityType="Self.TYPECONTACT" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__CONTACTS__Fk_Mar__2B3F6F97" Association="Self.FK__CONTACTS__Fk_Mar__2B3F6F97">
+            <End Role="MARITALSTATUS" EntitySet="MARITALSTATUS" />
+            <End Role="CONTACTS" EntitySet="CONTACTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CONTACTS__Fk_Sex__2C3393D0" Association="Self.FK__CONTACTS__Fk_Sex__2C3393D0">
+            <End Role="SEXUALITY" EntitySet="SEXUALITY" />
+            <End Role="CONTACTS" EntitySet="CONTACTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CONTACTS__Fk_Typ__2A4B4B5E" Association="Self.FK__CONTACTS__Fk_Typ__2A4B4B5E">
+            <End Role="TYPECONTACT" EntitySet="TYPECONTACT" />
+            <End Role="CONTACTS" EntitySet="CONTACTS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BookContactDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CONTACTS">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Cellphone" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Birthdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Fk_TypeContact" Type="Int32" Nullable="false" />
+          <Property Name="Fk_MaritalStatus" Type="Int32" Nullable="false" />
+          <Property Name="Fk_Sexuality" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MARITALSTATUS" Relationship="Self.FK__CONTACTS__Fk_Mar__2B3F6F97" FromRole="CONTACTS" ToRole="MARITALSTATUS" />
+          <NavigationProperty Name="SEXUALITY" Relationship="Self.FK__CONTACTS__Fk_Sex__2C3393D0" FromRole="CONTACTS" ToRole="SEXUALITY" />
+          <NavigationProperty Name="TYPECONTACT" Relationship="Self.FK__CONTACTS__Fk_Typ__2A4B4B5E" FromRole="CONTACTS" ToRole="TYPECONTACT" />
+        </EntityType>
+        <EntityType Name="MARITALSTATUS">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CONTACTS" Relationship="Self.FK__CONTACTS__Fk_Mar__2B3F6F97" FromRole="MARITALSTATUS" ToRole="CONTACTS" />
+        </EntityType>
+        <EntityType Name="SEXUALITY">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CONTACTS" Relationship="Self.FK__CONTACTS__Fk_Sex__2C3393D0" FromRole="SEXUALITY" ToRole="CONTACTS" />
+        </EntityType>
+        <EntityType Name="TYPECONTACT">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CONTACTS" Relationship="Self.FK__CONTACTS__Fk_Typ__2A4B4B5E" FromRole="TYPECONTACT" ToRole="CONTACTS" />
+        </EntityType>
+        <Association Name="FK__CONTACTS__Fk_Mar__2B3F6F97">
+          <End Role="MARITALSTATUS" Type="Self.MARITALSTATUS" Multiplicity="1" />
+          <End Role="CONTACTS" Type="Self.CONTACTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MARITALSTATUS">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CONTACTS">
+              <PropertyRef Name="Fk_MaritalStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CONTACTS__Fk_Sex__2C3393D0">
+          <End Role="SEXUALITY" Type="Self.SEXUALITY" Multiplicity="1" />
+          <End Role="CONTACTS" Type="Self.CONTACTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEXUALITY">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CONTACTS">
+              <PropertyRef Name="Fk_Sexuality" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CONTACTS__Fk_Typ__2A4B4B5E">
+          <End Role="TYPECONTACT" Type="Self.TYPECONTACT" Multiplicity="1" />
+          <End Role="CONTACTS" Type="Self.CONTACTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TYPECONTACT">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CONTACTS">
+              <PropertyRef Name="Fk_TypeContact" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BookContactDatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CONTACTS" EntityType="Self.CONTACTS" />
+          <EntitySet Name="MARITALSTATUS" EntityType="Self.MARITALSTATUS" />
+          <EntitySet Name="SEXUALITY" EntityType="Self.SEXUALITY" />
+          <EntitySet Name="TYPECONTACT" EntityType="Self.TYPECONTACT" />
+          <AssociationSet Name="FK__CONTACTS__Fk_Mar__2B3F6F97" Association="Self.FK__CONTACTS__Fk_Mar__2B3F6F97">
+            <End Role="MARITALSTATUS" EntitySet="MARITALSTATUS" />
+            <End Role="CONTACTS" EntitySet="CONTACTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CONTACTS__Fk_Sex__2C3393D0" Association="Self.FK__CONTACTS__Fk_Sex__2C3393D0">
+            <End Role="SEXUALITY" EntitySet="SEXUALITY" />
+            <End Role="CONTACTS" EntitySet="CONTACTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CONTACTS__Fk_Typ__2A4B4B5E" Association="Self.FK__CONTACTS__Fk_Typ__2A4B4B5E">
+            <End Role="TYPECONTACT" EntitySet="TYPECONTACT" />
+            <End Role="CONTACTS" EntitySet="CONTACTS" />
+          </AssociationSet>
+          <FunctionImport Name="getContacts" ReturnType="Collection(BookContactDatabaseModel.getContacts_Result)" />
+        </EntityContainer>
+        <ComplexType Name="getContacts_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Phone" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="Cellphone" Nullable="false" MaxLength="25" />
+          <Property Type="DateTime" Name="Birthdate" Nullable="false" />
+          <Property Type="Int32" Name="Fk_TypeContact" Nullable="false" />
+          <Property Type="Int32" Name="Fk_MaritalStatus" Nullable="false" />
+          <Property Type="Int32" Name="Fk_Sexuality" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BookContactDatabaseModelStoreContainer" CdmEntityContainer="BookContactDatabaseEntities">
+          <EntitySetMapping Name="CONTACTS">
+            <EntityTypeMapping TypeName="BookContactDatabaseModel.CONTACTS">
+              <MappingFragment StoreEntitySet="CONTACTS">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Cellphone" ColumnName="Cellphone" />
+                <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+                <ScalarProperty Name="Fk_TypeContact" ColumnName="Fk_TypeContact" />
+                <ScalarProperty Name="Fk_MaritalStatus" ColumnName="Fk_MaritalStatus" />
+                <ScalarProperty Name="Fk_Sexuality" ColumnName="Fk_Sexuality" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MARITALSTATUS">
+            <EntityTypeMapping TypeName="BookContactDatabaseModel.MARITALSTATUS">
+              <MappingFragment StoreEntitySet="MARITALSTATUS">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SEXUALITY">
+            <EntityTypeMapping TypeName="BookContactDatabaseModel.SEXUALITY">
+              <MappingFragment StoreEntitySet="SEXUALITY">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TYPECONTACT">
+            <EntityTypeMapping TypeName="BookContactDatabaseModel.TYPECONTACT">
+              <MappingFragment StoreEntitySet="TYPECONTACT">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="getContacts" FunctionName="BookContactDatabaseModel.Store.getContacts">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BookContactDatabaseModel.getContacts_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Cellphone" ColumnName="Cellphone" />
+                <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+                <ScalarProperty Name="Fk_TypeContact" ColumnName="Fk_TypeContact" />
+                <ScalarProperty Name="Fk_MaritalStatus" ColumnName="Fk_MaritalStatus" />
+                <ScalarProperty Name="Fk_Sexuality" ColumnName="Fk_Sexuality" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

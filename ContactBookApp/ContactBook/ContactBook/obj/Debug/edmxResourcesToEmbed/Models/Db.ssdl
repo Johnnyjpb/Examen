@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BookContactDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CONTACTS">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="35" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="25" />
+    <Property Name="Cellphone" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Birthdate" Type="date" Nullable="false" />
+    <Property Name="Fk_TypeContact" Type="int" Nullable="false" />
+    <Property Name="Fk_MaritalStatus" Type="int" Nullable="false" />
+    <Property Name="Fk_Sexuality" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MARITALSTATUS">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="35" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SEXUALITY">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="35" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TYPECONTACT">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="35" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__CONTACTS__Fk_Mar__2B3F6F97">
+    <End Role="MARITALSTATUS" Type="Self.MARITALSTATUS" Multiplicity="1" />
+    <End Role="CONTACTS" Type="Self.CONTACTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MARITALSTATUS">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CONTACTS">
+        <PropertyRef Name="Fk_MaritalStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CONTACTS__Fk_Sex__2C3393D0">
+    <End Role="SEXUALITY" Type="Self.SEXUALITY" Multiplicity="1" />
+    <End Role="CONTACTS" Type="Self.CONTACTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SEXUALITY">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CONTACTS">
+        <PropertyRef Name="Fk_Sexuality" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CONTACTS__Fk_Typ__2A4B4B5E">
+    <End Role="TYPECONTACT" Type="Self.TYPECONTACT" Multiplicity="1" />
+    <End Role="CONTACTS" Type="Self.CONTACTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TYPECONTACT">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CONTACTS">
+        <PropertyRef Name="Fk_TypeContact" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="getContacts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="BookContactDatabaseModelStoreContainer">
+    <EntitySet Name="CONTACTS" EntityType="Self.CONTACTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MARITALSTATUS" EntityType="Self.MARITALSTATUS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SEXUALITY" EntityType="Self.SEXUALITY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TYPECONTACT" EntityType="Self.TYPECONTACT" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__CONTACTS__Fk_Mar__2B3F6F97" Association="Self.FK__CONTACTS__Fk_Mar__2B3F6F97">
+      <End Role="MARITALSTATUS" EntitySet="MARITALSTATUS" />
+      <End Role="CONTACTS" EntitySet="CONTACTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CONTACTS__Fk_Sex__2C3393D0" Association="Self.FK__CONTACTS__Fk_Sex__2C3393D0">
+      <End Role="SEXUALITY" EntitySet="SEXUALITY" />
+      <End Role="CONTACTS" EntitySet="CONTACTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CONTACTS__Fk_Typ__2A4B4B5E" Association="Self.FK__CONTACTS__Fk_Typ__2A4B4B5E">
+      <End Role="TYPECONTACT" EntitySet="TYPECONTACT" />
+      <End Role="CONTACTS" EntitySet="CONTACTS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

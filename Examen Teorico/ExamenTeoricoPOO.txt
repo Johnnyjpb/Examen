@@ -1,0 +1,76 @@
+1)
+for(int i = 1; i <= 100; i++)
+        {
+            if((i % 5) == 0 && (i % 3) == 0)
+            {
+                Console.WriteLine("aDnziiCa");
+            }
+            else
+            {
+                if((i % 3) == 0)
+                {
+                    Console.WriteLine("aDn");
+                }
+                else
+                {
+                    if((i % 5) == 0)
+                    {
+                        Console.WriteLine("ziiCa");
+                    }
+                    else
+                    {
+                        Console.WriteLine(i);
+                    }
+                }
+            }
+        }
+    }
+
+2)
+public void testFact(int i)
+{
+  int fact = 1;
+  int number;
+  if(number<0) fact =0;
+   else if(number==0) fact=1;
+   else{
+      for (int i = 1; i <= number; i++){
+         fact = fact*i;
+      }
+   }
+  return fact;
+}
+
+4)
+
+SELECT C.* FROM CUENTA AS C WHERE C.Estatus = 0 
+JOIN AccesoCuenta AS AC ON AC.IdCuenta = C.IdCuenta AND
+COUNT((SELECT * FROM AccesoCuenta GROUP BY AccesoCuenta.IdCuenta) < 3)
+
+5)
+La arquitecura MVC, se conforma por el Modelo - Vista - Controlador
+el cual la vista es la interfaz con la que interactua el usuario,
+el controlador es el encargado de comunicar al modelo y la vista,
+y por ultimo el modelo es el encargado de realizar peticiones a la Base de datos.
+
+6)
+Es un marco de trabajo de aplicaciones orientadas a servicios
+7)
+Una pila es un tipo de arreglo que tiene como regla el primero que entra es el ultimo que sale
+Una cola es alrevez su regla es el primero que entra es el primero que sale.
+8)
+Una variable global es una variable que puede utilizarse en una clase completa
+una variable local es una variable que solo puede utilizarse en una cierta funcion
+y una variable estatica es una variable que puede mandarse a llamar en cualquier parte del proyecto.
+9)
+Es una herramienta para realizar consultas en fuentes de datos.
+10)
+Podria usarse para filtrar cierta informacion de un objecto o arreglo.
+11) 
+Dispose es para cerrar algo o una conexion
+Flush para escribir algo en meemoria
+12)
+La herencia es cuanto una clase hereda de otra clase padre
+El polimorfismo es cuando envias el mismo metodo pero de diferentes objectos
+Un metodo sobrecargado o sobrecarga de metodos es cuanto tienes un mismo metodo pero con mas parametros o sin parametros,
+realiza diferentes acciones dependiendo de las propiedades.
