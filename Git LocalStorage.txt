@@ -1,0 +1,32 @@
+﻿1.- Cree una carpeta junto a a los demás ejercicios del proyecto llamada
+2.- Dentro de esa carpeta, inicialice el proyecto de git
+3.- Dentro del repositorio cree un archivo llamado README.md, ingrese el siguiente contenido:
+          # Información
+          Este es el resultado de mi esfuerzo aprendiendo GIT
+4.- 
+	Agregue el README.md al stage o escenario
+	Realice el primer commit con el mensaje Creación del readme
+5.-
+	Cree una carpeta dentro del proyecto llamada logs
+	Dentro de la carpeta logs, cree un archivo llamado hoy.log
+	Crear otro archivo llamado historia.log
+6.-
+	Agregue únicamente el archivo hoy.log al stage
+7.-
+	Realice el segundo commit con el archivo hoy.log, y en el mensaje coloque "Creamos el archivo hoy.log"
+8.-
+	Vamos a crear ahora el archivo .gitignore
+	Ignoremos completamente el archivo historia.log
+9.-
+	Agregue al stage el archivo .gitignore
+	Realice un commit unicamente con el archivo .gitignore
+10.-
+	Borre la carpeta LOGS
+	Borre el archivo index.html
+	Borre el archivo .gitignore
+	El único archivo que debe de quedar, es el README.md
+11.-
+	Reconstruir todo lo borrado con un único comando. (El archivo historia.log debe de aparecer)
+12.-
+	¿Aparecio el Archivo historia.log y por que?
+	No, porque el archivo no estaba en el limbo.
