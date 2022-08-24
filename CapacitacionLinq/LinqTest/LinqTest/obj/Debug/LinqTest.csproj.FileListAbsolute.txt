@@ -9,3 +9,13 @@ C:\Users\lmcamacho\source\repos\LinqTest\LinqTest\obj\Debug\LinqTest.csproj.Gene
 C:\Users\lmcamacho\source\repos\LinqTest\LinqTest\obj\Debug\LinqTest.csproj.CoreCompileInputs.cache
 C:\Users\lmcamacho\source\repos\LinqTest\LinqTest\obj\Debug\LinqTest.exe
 C:\Users\lmcamacho\source\repos\LinqTest\LinqTest\obj\Debug\LinqTest.pdb
+C:\Users\iarosales\Documents\Curso\Capacitacion\Examen\CapacitacionLinq\LinqTest\LinqTest\bin\Debug\LinqTest.exe.config
+C:\Users\iarosales\Documents\Curso\Capacitacion\Examen\CapacitacionLinq\LinqTest\LinqTest\bin\Debug\LinqTest.exe
+C:\Users\iarosales\Documents\Curso\Capacitacion\Examen\CapacitacionLinq\LinqTest\LinqTest\bin\Debug\LinqTest.pdb
+C:\Users\iarosales\Documents\Curso\Capacitacion\Examen\CapacitacionLinq\LinqTest\LinqTest\obj\Debug\LinqTest.csproj.AssemblyReference.cache
+C:\Users\iarosales\Documents\Curso\Capacitacion\Examen\CapacitacionLinq\LinqTest\LinqTest\obj\Debug\LinqTest.Properties.Resources.resources
+C:\Users\iarosales\Documents\Curso\Capacitacion\Examen\CapacitacionLinq\LinqTest\LinqTest\obj\Debug\LinqTest.Main.resources
+C:\Users\iarosales\Documents\Curso\Capacitacion\Examen\CapacitacionLinq\LinqTest\LinqTest\obj\Debug\LinqTest.csproj.GenerateResource.cache
+C:\Users\iarosales\Documents\Curso\Capacitacion\Examen\CapacitacionLinq\LinqTest\LinqTest\obj\Debug\LinqTest.csproj.CoreCompileInputs.cache
+C:\Users\iarosales\Documents\Curso\Capacitacion\Examen\CapacitacionLinq\LinqTest\LinqTest\obj\Debug\LinqTest.exe
+C:\Users\iarosales\Documents\Curso\Capacitacion\Examen\CapacitacionLinq\LinqTest\LinqTest\obj\Debug\LinqTest.pdb

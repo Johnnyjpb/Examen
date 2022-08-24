@@ -30,6 +30,8 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnNoCoupleNumbers = new System.Windows.Forms.Button();
+            this.btnCoupleNumbers = new System.Windows.Forms.Button();
             this.btnAscListB = new System.Windows.Forms.Button();
             this.btnSum = new System.Windows.Forms.Button();
             this.btnCousinNumbers = new System.Windows.Forms.Button();
@@ -37,17 +39,15 @@
             this.btnProcess = new System.Windows.Forms.Button();
             this.txtNumberN = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnCoupleNumbers = new System.Windows.Forms.Button();
-            this.btnNoCoupleNumbers = new System.Windows.Forms.Button();
-            this.txtRepNumber = new System.Windows.Forms.TextBox();
-            this.btnRepNum = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtRepNumC = new System.Windows.Forms.TextBox();
-            this.btnCalRepNum = new System.Windows.Forms.Button();
-            this.btnGetInfo = new System.Windows.Forms.Button();
             this.btnClean = new System.Windows.Forms.Button();
+            this.btnGetInfo = new System.Windows.Forms.Button();
+            this.btnCalRepNum = new System.Windows.Forms.Button();
+            this.txtRepNumC = new System.Windows.Forms.TextBox();
+            this.btnRepNum = new System.Windows.Forms.Button();
+            this.txtRepNumber = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -55,10 +55,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Narrow", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(316, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 37);
+            this.label1.Size = new System.Drawing.Size(192, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "LINQ TEST";
             // 
@@ -76,6 +76,28 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(306, 335);
             this.panel1.TabIndex = 1;
+            // 
+            // btnNoCoupleNumbers
+            // 
+            this.btnNoCoupleNumbers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNoCoupleNumbers.Location = new System.Drawing.Point(224, 84);
+            this.btnNoCoupleNumbers.Name = "btnNoCoupleNumbers";
+            this.btnNoCoupleNumbers.Size = new System.Drawing.Size(75, 36);
+            this.btnNoCoupleNumbers.TabIndex = 5;
+            this.btnNoCoupleNumbers.Text = "Numeros inpares";
+            this.btnNoCoupleNumbers.UseVisualStyleBackColor = true;
+            this.btnNoCoupleNumbers.Click += new System.EventHandler(this.btnNoCoupleNumbers_Click);
+            // 
+            // btnCoupleNumbers
+            // 
+            this.btnCoupleNumbers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCoupleNumbers.Location = new System.Drawing.Point(122, 84);
+            this.btnCoupleNumbers.Name = "btnCoupleNumbers";
+            this.btnCoupleNumbers.Size = new System.Drawing.Size(75, 36);
+            this.btnCoupleNumbers.TabIndex = 4;
+            this.btnCoupleNumbers.Text = "Numeros pares";
+            this.btnCoupleNumbers.UseVisualStyleBackColor = true;
+            this.btnCoupleNumbers.Click += new System.EventHandler(this.btnCoupleNumbers_Click);
             // 
             // btnAscListB
             // 
@@ -138,6 +160,7 @@
             this.txtNumberN.Name = "txtNumberN";
             this.txtNumberN.Size = new System.Drawing.Size(116, 20);
             this.txtNumberN.TabIndex = 5;
+            this.txtNumberN.TextChanged += new System.EventHandler(this.txtNumberN_TextChanged);
             // 
             // panel2
             // 
@@ -159,93 +182,16 @@
             this.panel2.Size = new System.Drawing.Size(234, 335);
             this.panel2.TabIndex = 2;
             // 
-            // label2
+            // btnClean
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(45, 7);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(141, 20);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Numeros mayores a: ";
-            // 
-            // btnCoupleNumbers
-            // 
-            this.btnCoupleNumbers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCoupleNumbers.Location = new System.Drawing.Point(122, 84);
-            this.btnCoupleNumbers.Name = "btnCoupleNumbers";
-            this.btnCoupleNumbers.Size = new System.Drawing.Size(75, 36);
-            this.btnCoupleNumbers.TabIndex = 4;
-            this.btnCoupleNumbers.Text = "Numeros pares";
-            this.btnCoupleNumbers.UseVisualStyleBackColor = true;
-            this.btnCoupleNumbers.Click += new System.EventHandler(this.btnCoupleNumbers_Click);
-            // 
-            // btnNoCoupleNumbers
-            // 
-            this.btnNoCoupleNumbers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNoCoupleNumbers.Location = new System.Drawing.Point(224, 84);
-            this.btnNoCoupleNumbers.Name = "btnNoCoupleNumbers";
-            this.btnNoCoupleNumbers.Size = new System.Drawing.Size(75, 36);
-            this.btnNoCoupleNumbers.TabIndex = 5;
-            this.btnNoCoupleNumbers.Text = "Numeros inpares";
-            this.btnNoCoupleNumbers.UseVisualStyleBackColor = true;
-            this.btnNoCoupleNumbers.Click += new System.EventHandler(this.btnNoCoupleNumbers_Click);
-            // 
-            // txtRepNumber
-            // 
-            this.txtRepNumber.Location = new System.Drawing.Point(14, 87);
-            this.txtRepNumber.Name = "txtRepNumber";
-            this.txtRepNumber.Size = new System.Drawing.Size(116, 20);
-            this.txtRepNumber.TabIndex = 7;
-            // 
-            // btnRepNum
-            // 
-            this.btnRepNum.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRepNum.Location = new System.Drawing.Point(144, 85);
-            this.btnRepNum.Name = "btnRepNum";
-            this.btnRepNum.Size = new System.Drawing.Size(75, 23);
-            this.btnRepNum.TabIndex = 8;
-            this.btnRepNum.Text = "Calcular";
-            this.btnRepNum.UseVisualStyleBackColor = true;
-            this.btnRepNum.Click += new System.EventHandler(this.btnRepNum_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(34, 58);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(161, 20);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Numero repeticiones de:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(34, 120);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(165, 20);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Numero repeticiones en: ";
-            // 
-            // txtRepNumC
-            // 
-            this.txtRepNumC.Location = new System.Drawing.Point(14, 152);
-            this.txtRepNumC.Name = "txtRepNumC";
-            this.txtRepNumC.Size = new System.Drawing.Size(116, 20);
-            this.txtRepNumC.TabIndex = 9;
-            // 
-            // btnCalRepNum
-            // 
-            this.btnCalRepNum.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCalRepNum.Location = new System.Drawing.Point(144, 150);
-            this.btnCalRepNum.Name = "btnCalRepNum";
-            this.btnCalRepNum.Size = new System.Drawing.Size(75, 23);
-            this.btnCalRepNum.TabIndex = 10;
-            this.btnCalRepNum.Text = "Calcular";
-            this.btnCalRepNum.UseVisualStyleBackColor = true;
-            this.btnCalRepNum.Click += new System.EventHandler(this.btnCalRepNum_Click);
+            this.btnClean.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClean.Location = new System.Drawing.Point(144, 189);
+            this.btnClean.Name = "btnClean";
+            this.btnClean.Size = new System.Drawing.Size(75, 36);
+            this.btnClean.TabIndex = 12;
+            this.btnClean.Text = "Limpiar campos";
+            this.btnClean.UseVisualStyleBackColor = true;
+            this.btnClean.Click += new System.EventHandler(this.btnClean_Click);
             // 
             // btnGetInfo
             // 
@@ -258,16 +204,73 @@
             this.btnGetInfo.UseVisualStyleBackColor = true;
             this.btnGetInfo.Click += new System.EventHandler(this.btnGetInfo_Click);
             // 
-            // btnClean
+            // btnCalRepNum
             // 
-            this.btnClean.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClean.Location = new System.Drawing.Point(144, 189);
-            this.btnClean.Name = "btnClean";
-            this.btnClean.Size = new System.Drawing.Size(75, 36);
-            this.btnClean.TabIndex = 12;
-            this.btnClean.Text = "Limpiar campos";
-            this.btnClean.UseVisualStyleBackColor = true;
-            this.btnClean.Click += new System.EventHandler(this.btnClean_Click);
+            this.btnCalRepNum.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCalRepNum.Location = new System.Drawing.Point(144, 150);
+            this.btnCalRepNum.Name = "btnCalRepNum";
+            this.btnCalRepNum.Size = new System.Drawing.Size(75, 23);
+            this.btnCalRepNum.TabIndex = 10;
+            this.btnCalRepNum.Text = "Calcular";
+            this.btnCalRepNum.UseVisualStyleBackColor = true;
+            this.btnCalRepNum.Click += new System.EventHandler(this.btnCalRepNum_Click);
+            // 
+            // txtRepNumC
+            // 
+            this.txtRepNumC.Location = new System.Drawing.Point(14, 152);
+            this.txtRepNumC.Name = "txtRepNumC";
+            this.txtRepNumC.Size = new System.Drawing.Size(116, 20);
+            this.txtRepNumC.TabIndex = 9;
+            this.txtRepNumC.TextChanged += new System.EventHandler(this.txtRepNumC_TextChanged);
+            // 
+            // btnRepNum
+            // 
+            this.btnRepNum.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRepNum.Location = new System.Drawing.Point(144, 85);
+            this.btnRepNum.Name = "btnRepNum";
+            this.btnRepNum.Size = new System.Drawing.Size(75, 23);
+            this.btnRepNum.TabIndex = 8;
+            this.btnRepNum.Text = "Calcular";
+            this.btnRepNum.UseVisualStyleBackColor = true;
+            this.btnRepNum.Click += new System.EventHandler(this.btnRepNum_Click);
+            // 
+            // txtRepNumber
+            // 
+            this.txtRepNumber.Location = new System.Drawing.Point(14, 87);
+            this.txtRepNumber.Name = "txtRepNumber";
+            this.txtRepNumber.Size = new System.Drawing.Size(116, 20);
+            this.txtRepNumber.TabIndex = 7;
+            this.txtRepNumber.TextChanged += new System.EventHandler(this.txtRepNumber_TextChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(34, 120);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(209, 20);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Numero repeticiones en: ";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(34, 58);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(204, 20);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Numero repeticiones de:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(45, 7);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(177, 20);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Numeros mayores a: ";
             // 
             // Main
             // 

@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Controller\MainController.cs" />
     <Compile Include="Resources\ResourcesObjects.cs" />
+    <Compile Include="Tools\Utilities.cs" />
     <Compile Include="View\Main.cs">
       <SubType>Form</SubType>
     </Compile>

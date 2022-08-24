@@ -1,4 +1,5 @@
 ﻿using LinqTest.Controller;
+using LinqTest.Tools;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -54,8 +55,8 @@ namespace LinqTest
         }
 
         private void btnProcess_Click(object sender, EventArgs e)
-        {   
-            if(!string.IsNullOrEmpty(txtNumberN.Text))
+        {
+            if (!string.IsNullOrEmpty(txtNumberN.Text))
             {
                 string data = "";
                 MainController.getNumberUpThan(Int32.Parse(txtNumberN.Text), MainController.getDescNumberList()).ForEach((number) =>
@@ -121,5 +122,11 @@ namespace LinqTest
             txtRepNumber.Text = null;
             txtRepNumC.Text = null;
         }
+
+        private void txtNumberN_TextChanged(object sender, EventArgs e) => txtNumberN.Text = txtNumberN.Text.OnlyNumbers();
+
+        private void txtRepNumber_TextChanged(object sender, EventArgs e) => txtRepNumber.Text = txtRepNumber.Text.OnlyNumbers();
+
+        private void txtRepNumC_TextChanged(object sender, EventArgs e) => txtRepNumC.Text = txtRepNumC.Text.OnlyNumbers();
     }
 }
