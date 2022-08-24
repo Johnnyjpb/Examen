@@ -1,0 +1,11 @@
+C:\Users\lmcamacho\source\repos\LinqTest\LinqTest\bin\Debug\LinqTest.exe.config
+C:\Users\lmcamacho\source\repos\LinqTest\LinqTest\bin\Debug\LinqTest.exe
+C:\Users\lmcamacho\source\repos\LinqTest\LinqTest\bin\Debug\LinqTest.pdb
+C:\Users\lmcamacho\source\repos\LinqTest\LinqTest\obj\Debug\LinqTest.csproj.AssemblyReference.cache
+C:\Users\lmcamacho\source\repos\LinqTest\LinqTest\obj\Debug\LinqTest.csproj.SuggestedBindingRedirects.cache
+C:\Users\lmcamacho\source\repos\LinqTest\LinqTest\obj\Debug\LinqTest.Properties.Resources.resources
+C:\Users\lmcamacho\source\repos\LinqTest\LinqTest\obj\Debug\LinqTest.Main.resources
+C:\Users\lmcamacho\source\repos\LinqTest\LinqTest\obj\Debug\LinqTest.csproj.GenerateResource.cache
+C:\Users\lmcamacho\source\repos\LinqTest\LinqTest\obj\Debug\LinqTest.csproj.CoreCompileInputs.cache
+C:\Users\lmcamacho\source\repos\LinqTest\LinqTest\obj\Debug\LinqTest.exe
+C:\Users\lmcamacho\source\repos\LinqTest\LinqTest\obj\Debug\LinqTest.pdb
